@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html ng-app="authApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .auth-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background: #fff;
+        }
+        .auth-container h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group span {
+            color: red;
+        }
+        .auth-button {
+            text-align: center;
+        }
+        .auth-button button {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .toggle-button {
+            text-align: center;
+        }
+        .toggle-button button {
+            background: #ccc;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body ng-controller="AuthController">
+    <div class="auth-container">
+        <h2>{{ isLoginForm ? 'Login Form' : 'Registration Form' }}</h2>
+        <form name="authForm" ng-submit="submitForm()">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" ng-model="user.username" required>
+                <span ng-show="authForm.username.$touched && authForm.username.$error.required">Username is required.</span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" ng-model="user.password" required>
+                <span ng-show="authForm.password.$touched && authForm.password.$error.required">Password is required.</span>
+            </div>
+            <div class="auth-button">
+                <button type="submit" ng-disabled="authForm.$invalid">{{ isLoginForm ? 'Login' : 'Register' }}</button>
+            </div>
+        </form>
+
+        <div ng-show="submitted">
+            <p ng-bind="message"></p>
+        </div>
+
+        <div class="toggle-button">
+            <button ng-click="toggleForm()">{{ isLoginForm ? 'Switch to Registration' : 'Switch to Login' }}</button>
+        </div>
+    </div>
+
+    <script>
+        angular.module('authApp', [])
+            .controller('AuthController', function($scope) {
+                $scope.isLoginForm = true;
+                $scope.user = {
+                    username: '',
+                    password: ''
+                };
+
+                $scope.submitted = false;
+
+                $scope.submitForm = function() {
+                    $scope.submitted = true;
+                    if ($scope.authForm.$valid) {
+                        if ($scope.isLoginForm) {
+                            // Login logic
+                            // Example: Check credentials, make an API request, etc.
+                            $scope.message = 'Login successful!';
+                        } else {
+                            // Registration logic
+                            // Example: Store user data, make an API request, etc.
+                            $scope.message = 'Registration successful!';
+                        }
+                    }
+                };
+
+                $scope.toggleForm = function() {
+                    $scope.isLoginForm = !$scope.isLoginForm;
+                    $scope.user = {
+                        username: '',
+                        password: ''
+                    };
+                    $scope.submitted = false;
+                    $scope.message = '';
+                };
+            });
+
+            <!-- Include this code in your <script> section -->
+angular.module('authApp', [])
+    .controller('AuthController', function($scope, $http) {
+        $scope.isLoginForm = true;
+        $scope.user = {
+            username: '',
+            password: '',
+            name: '',
+            email: ''
+        };
+
+        $scope.submitted = false;
+
+        $scope.submitForm = function() {
+            $scope.submitted = true;
+            if ($scope.authForm.$valid) {
+                var url = $scope.isLoginForm ? '/login-servlet' : '/register-servlet';
+                $http.post(url, $scope.user).then(function(response) {
+                    if (response.data.success) {
+                        $scope.message = response.data.message;
+                    } else {
+                        $scope.message = 'Error: ' + response.data.message;
+                    }
+                });
+            }
+        };
+
+        $scope.toggleForm = function() {
+            $scope.isLoginForm = !$scope.isLoginForm;
+            $scope.user = {
+                username: '',
+                password: '',
+                name: '',
+                email: ''
+            };
+            $scope.submitted = false;
+            $scope.message = '';
+        };
+    });
+
+
+    </script>
+</body>
+</html>

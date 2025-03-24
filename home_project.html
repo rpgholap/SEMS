@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="LostAndFoundApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="login_01.html">
+    <link rel="stylesheet" type="text/css" href="registration_01.html">
+    <link rel="stylesheet" type="text/css" href="aboutus_project.html">
+    <link rel="stylesheet" type="text/css" href="feedback_project.html">
+    <link rel="stylesheet" type="text/css" href="servelet.xml">
+    <link rel="stylesheet" type="text/css" href="java.js">
+    <link rel="stylesheet" type="text/css" href="style_project.css">
+
+</head>
+<body ng-controller="HomeController">
+    <div class="header">
+        <h1>Lost and Found System</h1>
+    </div>
+    <div class="container">
+        <div class="search-box">
+            <input type="text" ng-model="searchTerm" placeholder="Search for lost items">
+        </div>
+        <div class="search-button">
+            <button ng-click="searchLostItems()">Search</button>
+        </div>
+        <div class="found-button">
+            <button ng-click="reportFoundItem()">Report a Found Item</button>
+        </div>
+    </div>
+<nav>
+    <ul class="social-icons">
+        <li><a href="https://www.youtube.com" class="youtube-icon" target="_blank" title="YouTube"></a></li>
+        <li><a href="https://www.facebook.com" class="facebook-icon" target="_blank" title="Facebook"></a></li>
+        <li><a href="https://twitter.com" class="twitter-icon" target="_blank" title="Twitter"></a></li>
+        <li><a href="https://www.instagram.com" class="instagram-icon" target="_blank" title="Instagram"></a></li>
+    </ul>
+</nav>
+
+    <script>
+        angular.module('LostAndFoundApp', [])
+            .controller('HomeController', function($scope) {
+                $scope.searchTerm = '';
+
+                $scope.searchLostItems = function() {
+                    // Implement search functionality, e.g., make API requests to fetch lost items.
+                    console.log('Searching for lost items with term: ' + $scope.searchTerm);
+                };
+
+                $scope.reportFoundItem = function() {
+                    // Redirect to the found item reporting page or open a modal for reporting.
+                    console.log('Reporting a found item');
+                };
+            });
+    </script>
+</body>
+</html>

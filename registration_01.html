@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="registrationApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .registration-container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background: #fff;
+        }
+        .registration-container h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group span {
+            color: red;
+        }
+        .registration-button {
+            text-align: center;
+        }
+        .registration-button button {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body ng-controller="RegistrationController">
+    <div class="registration-container">
+        <h2>Registration Form</h2>
+        <form name="registrationForm" ng-submit="submitForm()">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" ng-model="user.username" required>
+                <span ng-show="registrationForm.username.$touched && registrationForm.username.$error.required">Username is required.</span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" ng-model="user.password" required>
+                <span ng-show="registrationForm.password.$touched && registrationForm.password.$error.required">Password is required.</span>
+            </div>
+            <div class="registration-button">
+                <button type="submit" ng-disabled="registrationForm.$invalid">Register</button>
+            </div>
+        </form>
+
+        <div ng-show="submitted">
+            <p ng-bind="message"></p>
+        </div>
+    </div>
+
+    <script>
+        angular.module('registrationApp', [])
+            .controller('RegistrationController', function($scope) {
+                $scope.user = {
+                    username: '',
+                    password: ''
+                };
+
+                $scope.submitted = false;
+
+                $scope.submitForm = function() {
+                    $scope.submitted = true;
+                    if ($scope.registrationForm.$valid) {
+                        // You can perform your registration logic here.
+                        // Example: Store user data, make an API request, etc.
+                        $scope.message = 'Registration successful!';
+                    }
+                };
+            });
+    </script>
+</body>
+</html>

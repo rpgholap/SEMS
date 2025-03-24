@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="LostAndFoundApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .about-section {
+            margin-bottom: 20px;
+        }
+        .about-section h2 {
+            font-size: 24px;
+        }
+        .about-section p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body ng-controller="AboutUsController">
+    <div class="header">
+        <h1>About Us</h1>
+    </div>
+    <div class="container">
+        <div class="about-section">
+            <h2>Our Mission</h2>
+            <p>We are dedicated to helping people recover lost items and reunite them with their rightful owners. Our mission is to provide a platform that makes the process of reporting lost items and finding them as efficient and straightforward as possible.</p>
+        </div>
+        <div class="about-section">
+            <h2>How It Works</h2>
+            <p>Our lost and found system allows users to report lost items and search for found items. Users can provide details about the item they lost, and those who find items can report them in our system. We aim to bridge the gap between the lost and found community.</p>
+        </div>
+        <div class="about-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback, please don't hesitate to reach out to us. You can contact our support team at support@example.com.</p>
+        </div>
+    </div>
+
+    <script>
+        angular.module('LostAndFoundApp', [])
+            .controller('AboutUsController', function($scope) {
+                // Your controller logic for the About Us page can be added here if needed.
+            });
+    </script>
+</body>
+</html>

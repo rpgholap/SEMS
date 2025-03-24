@@ -1,0 +1,79 @@
+ .social-icons {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-icons li {
+            display: inline;
+            margin-right: 10px; /* Adjust the spacing between icons */
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            display: block;
+            width: 32px; /* Set the width and height to match your icon size */
+            height: 32px;
+        }
+
+        /* Customize the background images for each social media icon */
+        .youtube-icon {
+            background: url('images/youtube-icon.png') no-repeat;
+        }
+
+        .facebook-icon {
+            background: url('images/facebook-icon.png') no-repeat;
+        }
+
+        .twitter-icon {
+            background: url('images/twitter-icon.png') no-repeat;
+        }
+
+        .instagram-icon {
+            background: url('images/instagram-icon.png') no-repeat;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-box {
+            text-align: center;
+        }
+        .search-box input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-button {
+            text-align: center;
+        }
+        .search-button button {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .found-button {
+            text-align: center;
+        }
+        .found-button button {
+            background: #2ecc71;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }

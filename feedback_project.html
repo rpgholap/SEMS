@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app="LostAndFoundApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background: burlywood;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .feedback-button {
+            text-align: center;
+        }
+        .feedback-button button {
+            background: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body ng-controller="FeedbackController">
+    <div class="header">
+        <h1>Feedback Form</h1>
+    </div>
+    <div class="container">
+        <form name="feedbackForm" ng-submit="submitFeedback()">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" ng-model="feedback.name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" ng-model="feedback.email" required>
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" ng-model="feedback.rating">
+                    <option value="5">Excellent</option>
+                    <option value="4">Very Good</option>
+                    <option value="3">Good</option>
+                    <option value="2">Fair</option>
+                    <option value="1">Poor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" ng-model="feedback.comments" required></textarea>
+            </div>
+            <div class="feedback-button">
+                <button type="submit" ng-disabled="feedbackForm.$invalid">Submit Feedback</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        angular.module('LostAndFoundApp', [])
+            .controller('FeedbackController', function($scope) {
+                $scope.feedback = {
+                    name: '',
+                    email: '',
+                    rating: '5',
+                    comments: ''
+                };
+
+                $scope.submitFeedback = function() {
+                    // You can implement the feedback submission logic here using JavaScript.
+                    // Typically, this would involve making an API request to store the feedback.
+                    console.log('Submitting feedback:', $scope.feedback);
+
+                    // Clear the form after submission
+                    $scope.feedback = {
+                        name: '',
+                        email: '',
+                        rating: '5',
+                        comments: ''
+                    };
+                };
+            });
+    </script>
+</body>
+</html>
