@@ -1,97 +1,165 @@
-# Sports Event Management System
+# 🏆 Sports Event Management System (SEMS)
 
-## 📌 Project Overview
-The **Sports Event Management System** is a web-based application designed to efficiently manage sports events, including user registration, event scheduling, team management, and result tracking. It provides a streamlined experience for event organizers, participants, and spectators.
+### 🔗 **Live Demo:**  
+👉 **https://sems-dzgi6dd4d-rpgholaps-projects.vercel.app**
 
-## 📁 Folder Structure
-```
-├── css/                # Stylesheets
-├── fonts/              # Custom fonts
-├── images/             # Images used in the website
-├── js/                 # JavaScript files
-├── preview_img/        # Preview images for the project
-├── about.html          # About page
-├── aboutus_project.html
-├── blog.html           # Blog section
-├── connection.php      # Database connection file
-├── contact.html        # Contact page
-├── contact.php         # Backend contact form handling
-├── controller.php      # Main controller
-├── feedback_project.html
-├── forgot.php          # Forgot password feature
-├── home_page.html      # Homepage
-├── home_project.html
-├── home_style.css      # Homepage styles
-├── index.html          # Main landing page
-├── java.js             # JavaScript functions
-├── login.html          # Login page
-├── login.php           # Backend login processing
-├── login_register.html # Registration page
-├── logout.php          # Logout functionality
-├── main.php            # Dashboard
-├── newPassword.php     # Reset password feature
-├── news.html           # News section
-├── otp.php             # OTP verification
-├── register.html       # Registration form
-├── registration.php    # Backend registration processing
-├── servlet.xml         # Servlet configurations
-├── single-blog.html    # Blog details page
-├── style.css           # Main stylesheet
-├── style_project.css   # Additional styles
-├── team.html           # Team details
-├── verifyEmail.php     # Email verification
-├── README.md           # Project documentation
-```
+A complete **web-based sports management portal** that simplifies event creation, team registration, scheduling, user authentication, and result tracking. Designed for organizers, participants, and administrators to manage sports activities efficiently.
+
+---
+
+## 📚 Table of Contents
+- Overview
+- Features
+- Technologies Used
+- Folder Structure
+- Database Setup
+- Installation
+- Project Preview
+- Future Scope
+- Contributing
+- Contact
+
+---
+
+## 📌 Overview
+
+The **Sports Event Management System (SEMS)** is developed to streamline the entire sports event lifecycle—from registration to match results.  
+It features user authentication, admin dashboard, event management tools, secure verification, and a responsive interface.
+
+This project is deployed and fully live on Vercel.
+
+---
 
 ## 🚀 Features
-- **User Authentication** (Login, Registration, Password Reset)
-- **Event Management** (Create, Edit, Delete Events)
-- **Team Management** (Player & Team Registration)
-- **Match Scheduling & Results Tracking**
-- **Admin Dashboard** for managing users and events
-- **News & Updates** section
-- **OTP & Email Verification** for a secure authentication system 
+
+### 🔐 Authentication
+- User Login & Registration  
+- Email Verification  
+- OTP Verification  
+- Forgot Password & Reset Password  
+- Secure Logout System  
+
+### 🏆 Event & Match Management
+- Create, edit, delete events  
+- Team and player registration  
+- Match scheduling  
+- Result management  
+
+### 🛠️ Admin Dashboard
+- Manage users  
+- Manage events  
+- Track match schedules  
+- View and respond to feedback  
+
+### 📢 Additional Modules
+- Blog & News page  
+- Contact form with backend  
+- Team information section  
+- About us module  
+
+---
 
 ## 🛠️ Technologies Used
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: PHP, MySQL
-- **Database**: MySQL for data storage
-- **Authentication**: OTP & Email Verification
 
-### 💻 Prerequisites  
-- **XAMPP/WAMP** (for local server setup)  
-- **MySQL Database** (for data storage)  
+### 🌐 Frontend
+- HTML5  
+- CSS3  
+- JavaScript  
 
-## 📦 Installation
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/rpgholap/SEMS.git
-   ```
-2. Configure the database:
-   - Import `database.sql` into MySQL
-   - Update `connection.php` with your database credentials
-3. Start a local server (XAMPP/WAMP)
-4. Open `index.html` in your browser
+### 🔙 Backend
+- PHP  
+- MySQL  
 
-## 📷 Project Preview
-[![Project Preview](preview_img/preview.png)](https://github.com/rpgholap/SEMS/blob/d02bb38a961dabdf946d50d5a97035463aaaa313/SEMS.mp4)
+### 🗄️ Database
+MySQL stores:
+- Users  
+- Events  
+- Teams & Players  
+- Match data  
+- Feedback  
+- OTP & email verification tokens  
 
-## 🔮 Future Scope
-- **Mobile App Integration** – Develop a mobile-friendly version for better accessibility.  
-- **AI-powered Match Predictions** – Implement AI algorithms to predict match outcomes.  
-- **Automated Scheduling System** – Use AI to optimize match schedules based on player availability.  
-- **Blockchain-based Result Verification** – Enhance transparency with tamper-proof event results.  
-- **Multi-language Support** – Expand accessibility by supporting multiple languages.  
-- **Enhanced UI/UX Design** – Improve the user experience with modern design principles.  
-- **API for Third-Party Integration** – Allow integration with third-party services for extended functionality.  
+### 🌍 Deployment
+- Vercel (Live Hosting)
+
+---
+
+## 🗄️ Database Setup
+
+### 1️⃣ Import Database  
+Use the provided `database.sql` file.
+
+```
+mysql -u root -p sems < database.sql
+```
+
+### 2️⃣ Configure Database  
+Edit **connection.php**:
+
+```
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sems";
+```
+
+---
+
+## 🧰 Installation
+
+### 1️⃣ Clone the Repository
+```
+git clone https://github.com/rpgholap/SEMS.git
+cd SEMS
+```
+
+### 2️⃣ Setup Local Server  
+Use **XAMPP** or **WAMP**  
+Place project inside:
+
+```
+htdocs/   (for XAMPP)
+www/      (for WAMP)
+```
+
+### 3️⃣ Start Services
+- Apache  
+- MySQL  
+
+### 4️⃣ Open in Browser
+```
+http://localhost/SEMS/index.html
+```
+
+---
+
+🎬 **Demo Video:**  
+https://github.com/rpgholap/SEMS/blob/d02bb38a961dabdf946d50d5a97035463aaaa313/SEMS.mp4
+
+---
+
+## Future Scope
+
+- Mobile App Development  
+- AI-Based Match Prediction  
+- AI Auto Scheduling  
+- Blockchain-based Result Verification  
+- Multi-language Support  
+- Modern UI/UX Redesign  
+- Third-party API Support  
+
+---
 
 ## 🤝 Contributing
-1. Fork the repository
-2. Create a new branch (`feature-branch`)
-3. Commit changes
-4. Open a Pull Request
 
-💡 *Feel free to modify this file based on your project requirements!*
+1. Fork the repository  
+2. Create a new feature branch  
+3. Commit changes  
+4. Submit a pull request  
 
-📧 **Suggestions & Feedback**  
-If you have any suggestions or ideas for improvement, feel free to reach out at **gholaprutuja9@gmail.com** or visit [GitHub](https://github.com/rpgholap).
+---
+
+## Contact
+
+📧 Email: gholaprutuja9@gmail.com  
+🌐 GitHub: https://github.com/rpgholap  
